@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -8,6 +9,8 @@ const TextStyle cardStyle = TextStyle(
     fontSize: 16, fontWeight: FontWeight.bold, fontFamily: 'Arciform');
 
 const TextStyle cardSubStyle = TextStyle(fontSize: 13, fontFamily: 'Arciform');
+
+bool inactive = true;
 
 class PomodoroScreen extends StatefulWidget {
   @override
@@ -90,6 +93,18 @@ class PomodoroTimerState extends State<PomodoroScreen>
                             ],
                           ),
                         ),
+                        Align(
+                            alignment: FractionalOffset.center,
+                            child: AnimatedBuilder(
+                              animation: controller,
+                              builder: (BuildContext context, Widget child) {
+                                if (!controller.isAnimating && !inactive) {
+                                  return TimerEndedPopup();
+                                } else {
+                                  return Container();
+                                }
+                              },
+                            )),
                       ],
                     )),
               ),
@@ -110,9 +125,8 @@ class PomodoroTimerState extends State<PomodoroScreen>
                             );
                           }),
                       onPressed: () {
-                        if (controller.isAnimating) {
-                          controller.stop();
-                        } else {
+                        inactive = false;
+                        if (!controller.isAnimating) {
                           controller.reverse(
                               from: controller.value == 0.0
                                   ? 1.0
@@ -124,6 +138,31 @@ class PomodoroTimerState extends State<PomodoroScreen>
                 ))
           ],
         ),
+      ),
+    );
+  }
+}
+
+class TimerEndedPopup extends StatefulWidget {
+  @override
+  TimerEndedPopupState createState() => TimerEndedPopupState();
+}
+
+class TimerEndedPopupState extends State<TimerEndedPopup> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: AlertDialog(
+        title: Text('AlertDialog Title'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              Text('This is a demo alert dialog.'),
+              Text('Would you like to approve of this message?'),
+            ],
+          ),
+        ),
+        actions: [TextButton(onPressed: () {}, child: Text('YAY!'))],
       ),
     );
   }
