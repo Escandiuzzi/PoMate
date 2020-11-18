@@ -30,9 +30,7 @@ class PomodoroTimerState extends State<PomodoroScreen>
   void initState() {
     super.initState();
     controller = AnimationController(
-      vsync: this,
-      duration: Duration(seconds: 10),
-    );
+        vsync: this, duration: Duration(seconds: 10), value: 1);
   }
 
   @override
@@ -98,8 +96,26 @@ class PomodoroTimerState extends State<PomodoroScreen>
                             child: AnimatedBuilder(
                               animation: controller,
                               builder: (BuildContext context, Widget child) {
-                                if (!controller.isAnimating && !inactive) {
-                                  return TimerEndedPopup();
+                                if (controller.value == 0) {
+                                  return AlertDialog(
+                                    title: Text('AlertDialog Title'),
+                                    content: SingleChildScrollView(
+                                      child: ListBody(
+                                        children: <Widget>[
+                                          Text('This is a demo alert dialog.'),
+                                          Text(
+                                              'Would you like to approve of this message?'),
+                                        ],
+                                      ),
+                                    ),
+                                    actions: [
+                                      FlatButton(
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text('YAY!'))
+                                    ],
+                                  );
                                 } else {
                                   return Container();
                                 }
