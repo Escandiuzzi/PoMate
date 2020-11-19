@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:poMate/screens/analytics.dart';
 import 'dart:math' as math;
 
 const TextStyle optionStyle = TextStyle(
@@ -10,7 +11,8 @@ const TextStyle cardStyle = TextStyle(
 
 const TextStyle cardSubStyle = TextStyle(fontSize: 13, fontFamily: 'Arciform');
 
-bool inactive = true;
+bool focus = true;
+double multiplier = 1.0;
 
 class PomodoroScreen extends StatefulWidget {
   @override
@@ -26,11 +28,18 @@ class PomodoroTimerState extends State<PomodoroScreen>
     return '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
   }
 
+  void afterTimerEnded() {
+    controller.duration = Duration(seconds: focus ? 10 : 5);
+    if (focus) updateFocusPoints(45 * multiplier);
+    focus = !focus;
+    controller.value = 1;
+  }
+
   @override
   void initState() {
     super.initState();
     controller = AnimationController(
-        vsync: this, duration: Duration(seconds: 10), value: 1);
+        vsync: this, duration: Duration(seconds: focus ? 10 : 5), value: 1);
   }
 
   @override
@@ -92,66 +101,50 @@ class PomodoroTimerState extends State<PomodoroScreen>
                           ),
                         ),
                         Align(
-                            alignment: FractionalOffset.center,
-                            child: AnimatedBuilder(
-                              animation: controller,
-                              builder: (BuildContext context, Widget child) {
-                                if (controller.value == 0) {
-                                  return AlertDialog(
-                                    title: Text('AlertDialog Title'),
-                                    content: SingleChildScrollView(
-                                      child: ListBody(
-                                        children: <Widget>[
-                                          Text('This is a demo alert dialog.'),
-                                          Text(
-                                              'Would you like to approve of this message?'),
-                                        ],
-                                      ),
-                                    ),
-                                    actions: [
-                                      FlatButton(
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Text('YAY!'))
-                                    ],
-                                  );
-                                } else {
-                                  return Container();
-                                }
-                              },
-                            )),
+                          alignment: FractionalOffset.center,
+                          child: AnimatedBuilder(
+                            animation: controller,
+                            builder:
+                                (BuildContext dialogContext, Widget child) {
+                              if (controller.value == 0) {
+                                WidgetsBinding.instance.addPostFrameCallback(
+                                    (_) => afterTimerEnded());
+                              }
+                              return Column();
+                            },
+                          ),
+                        ),
                       ],
                     )),
               ),
             ),
             Container(
-                margin: EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    FloatingActionButton(
-                      child: AnimatedBuilder(
-                          animation: controller,
-                          builder: (BuildContext context, Widget child) {
-                            return new Icon(
-                              controller.isAnimating
-                                  ? Icons.pause
-                                  : Icons.play_arrow,
-                            );
-                          }),
-                      onPressed: () {
-                        inactive = false;
-                        if (!controller.isAnimating) {
-                          controller.reverse(
-                              from: controller.value == 0.0
-                                  ? 1.0
-                                  : controller.value);
-                        }
-                      },
-                    )
-                  ],
-                ))
+              margin: EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  FloatingActionButton(
+                    child: AnimatedBuilder(
+                        animation: controller,
+                        builder: (BuildContext context, Widget child) {
+                          return new Icon(
+                            controller.isAnimating
+                                ? Icons.pause
+                                : Icons.play_arrow,
+                          );
+                        }),
+                    onPressed: () {
+                      if (!controller.isAnimating) {
+                        controller.reverse(
+                            from: controller.value == 0.0
+                                ? 1.0
+                                : controller.value);
+                      }
+                    },
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -166,7 +159,7 @@ class TimerEndedPopup extends StatefulWidget {
 
 class TimerEndedPopupState extends State<TimerEndedPopup> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext popupContext) {
     return Container(
       child: AlertDialog(
         title: Text('AlertDialog Title'),
@@ -178,7 +171,13 @@ class TimerEndedPopupState extends State<TimerEndedPopup> {
             ],
           ),
         ),
-        actions: [TextButton(onPressed: () {}, child: Text('YAY!'))],
+        actions: [
+          TextButton(
+              onPressed: () {
+                Navigator.of(popupContext, rootNavigator: true).pop(context);
+              },
+              child: Text('YAY!'))
+        ],
       ),
     );
   }

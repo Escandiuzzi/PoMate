@@ -9,20 +9,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyStatefulWidget(),
+      home: BottomBarWidget(),
       theme: ThemeData(brightness: Brightness.dark),
     );
   }
 }
 
-class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key key}) : super(key: key);
+class BottomBarWidget extends StatefulWidget {
+  BottomBarWidget({Key key}) : super(key: key);
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _BottomBarWidgetState createState() => _BottomBarWidgetState();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  int _selectedIndex = 0;
+class _BottomBarWidgetState extends State<BottomBarWidget> {
+  int _selectedIndex = 1;
   static List<Widget> _widgetOptions = <Widget>[
     AnalyticsScreen(),
     PomodoroScreen(),
