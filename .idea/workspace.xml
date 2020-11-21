@@ -1,36 +1,140 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/main.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
-  <component name="ToolWindowManager">
-    <editor active="true" />
-    <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-    </layout>
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
   </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <option name="show-excluded-files" value="false" />
-      </pane>
-    </panes>
+  <component name="ChangeListManager">
+    <list default="true" id="bbbc22e7-d45e-4b11-a7f8-a4b30615c9d8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/android/app/google-services.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Assets/Images/google_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/poMate_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/poMate_android.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/analytics.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/analytics.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/timer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/timer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poMate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/poMate.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1kZWA8Ka7bGOYtzieGYFOQiRlht" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/flutter/bin/cache/dart-sdk" />
+    <property name="project.structure.last.edited" value="Suggestions" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lfesc\Documents\GitHub\PoMate\lib\Assets\Images" />
+      <recent name="C:\Users\lfesc\Documents\GitHub\PoMate\android\app" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bbbc22e7-d45e-4b11-a7f8-a4b30615c9d8" name="Default Changelist" comment="" />
+      <created>1605908448009</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605908448009</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="126" y="274" key="#PSD" timestamp="1605911966951">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="126" y="274" key="#PSD/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605911966951" />
+    <state x="400" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605967683431">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="400" y="276" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605967683431" />
+    <state x="100" y="100" width="1256" height="850" key="AVDManager" timestamp="1605911393003">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="100" y="100" width="1256" height="850" key="AVDManager/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605911393003" />
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1605908743477">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="280" key="FileChooserDialogImpl/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605908743477" />
+    <state width="1294" height="281" key="GridCell.Tab.0.bottom" timestamp="1605968233822">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1294" height="281" key="GridCell.Tab.0.bottom/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605968233822" />
+    <state width="1294" height="281" key="GridCell.Tab.0.center" timestamp="1605968233822">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1294" height="281" key="GridCell.Tab.0.center/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605968233822" />
+    <state width="1294" height="281" key="GridCell.Tab.0.left" timestamp="1605968233822">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1294" height="281" key="GridCell.Tab.0.left/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605968233822" />
+    <state width="1294" height="281" key="GridCell.Tab.0.right" timestamp="1605968233822">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1294" height="281" key="GridCell.Tab.0.right/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605968233822" />
+    <state x="461" y="170" key="SettingsEditor" timestamp="1605908746641">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="461" y="170" key="SettingsEditor/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605908746641" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1605962011839">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605962011839" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/main.dart</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 const TextStyle optionStyle = TextStyle(
     fontSize: 35, fontWeight: FontWeight.bold, fontFamily: 'SofiaPro');
 
 double fPoints = 0;
+double graphHeight = 0;
 
 void updateFocusPoints(double points) {
   fPoints += points;
+
+  if (fPoints > 300)
+    graphHeight = 300;
+  else
+    graphHeight = fPoints;
 }
 
 class AnalyticsScreen extends StatefulWidget {
@@ -57,7 +62,7 @@ class GraphicPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.fill;
 
-    canvas.drawRect(Rect.fromLTWH(-100, 200, 50, fPoints), paint);
+    canvas.drawRect(Rect.fromLTWH(-100, 350, 50, -graphHeight), paint);
     paint.color = Colors.redAccent;
   }
 

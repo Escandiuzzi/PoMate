@@ -12,6 +12,11 @@ const TextStyle cardStyle = TextStyle(
 const TextStyle cardSubStyle = TextStyle(fontSize: 13, fontFamily: 'Arciform');
 
 bool focus = true;
+
+final int tFocusValue = 10;
+final int tRelaxValue = 5;
+
+double focusPoints = 15;
 double multiplier = 1.0;
 
 class PomodoroScreen extends StatefulWidget {
@@ -29,17 +34,17 @@ class PomodoroTimerState extends State<PomodoroScreen>
   }
 
   void afterTimerEnded() {
-    controller.duration = Duration(seconds: focus ? 10 : 5);
-    if (focus) updateFocusPoints(45 * multiplier);
-    focus = !focus;
-    controller.value = 1;
+      controller.duration = Duration(seconds: focus ? tFocusValue : tRelaxValue);
+      if (focus) updateFocusPoints(focusPoints * multiplier);
+      focus = !focus;
+      controller.value = 1;
   }
 
   @override
   void initState() {
     super.initState();
     controller = AnimationController(
-        vsync: this, duration: Duration(seconds: focus ? 10 : 5), value: 1);
+        vsync: this, duration: Duration(seconds: focus ? tFocusValue : tRelaxValue), value: 1);
   }
 
   @override
@@ -219,7 +224,7 @@ class TomatoPainter extends CustomPainter {
       ..color = Colors.red
       ..style = PaintingStyle.fill;
     //a circle
-    canvas.drawCircle(Offset.zero, 175, paint1);
+    canvas.drawCircle(Offset.zero, 190, paint1);
   }
 
   @override

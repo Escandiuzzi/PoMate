@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:poMate/screens/login.dart';
 import 'package:poMate/screens/analytics.dart';
-import 'package:poMate/screens/ranking.dart';
 import 'package:poMate/screens/timer.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -17,6 +22,7 @@ class MyApp extends StatelessWidget {
 
 class BottomBarWidget extends StatefulWidget {
   BottomBarWidget({Key key}) : super(key: key);
+
   @override
   _BottomBarWidgetState createState() => _BottomBarWidgetState();
 }
@@ -26,7 +32,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
   static List<Widget> _widgetOptions = <Widget>[
     AnalyticsScreen(),
     PomodoroScreen(),
-    RankingScreen(),
+    LoginPage(),
   ];
 
   void _onItemTapped(int index) {
