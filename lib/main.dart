@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:poMate/screens/login.dart';
 import 'package:poMate/screens/analytics.dart';
+import 'package:poMate/screens/ranking.dart';
 import 'package:poMate/screens/timer.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -32,6 +33,7 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
   static List<Widget> _widgetOptions = <Widget>[
     AnalyticsScreen(),
     PomodoroScreen(),
+    RankingScreen(),
     LoginPage(),
   ];
 
@@ -46,11 +48,13 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
     return Scaffold(
         body: Center(child: _widgetOptions.elementAt(_selectedIndex)),
         bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Colors.cyanAccent,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
                 icon: Icon(Icons.equalizer), label: 'My analytics'),
             BottomNavigationBarItem(icon: Icon(Icons.timer), label: 'Timer'),
             BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Ranking'),
+            BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'Login'),
           ],
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,

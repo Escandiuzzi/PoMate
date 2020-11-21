@@ -9,19 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bbbc22e7-d45e-4b11-a7f8-a4b30615c9d8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/android/app/google-services.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/Assets/Images/google_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/screens/login.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/poMate_android.iml" beforeDir="false" afterPath="$PROJECT_DIR$/android/poMate_android.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/analytics.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/analytics.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/timer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/timer.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poMate.iml" beforeDir="false" afterPath="$PROJECT_DIR$/poMate.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +111,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="170" key="SettingsEditor/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605908746641" />
+    <state width="498" height="508" key="SwitcherDM" timestamp="1605970447086">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="498" height="508" key="SwitcherDM/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605970447086" />
     <state width="600" height="428" key="javadoc.popup" timestamp="1605962011839">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
