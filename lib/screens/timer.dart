@@ -9,8 +9,6 @@ const TextStyle optionStyle = TextStyle(
 const TextStyle cardStyle = TextStyle(
     fontSize: 16, fontWeight: FontWeight.bold, fontFamily: 'Arciform');
 
-const TextStyle cardSubStyle = TextStyle(fontSize: 13, fontFamily: 'Arciform');
-
 bool focus = true;
 
 final int tFocusValue = 10;

@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:poMate/Controller/user.dart';
+import 'package:poMate/main.dart';
+import 'package:poMate/screens/login.dart';
 
 const TextStyle optionStyle = TextStyle(
     fontSize: 35, fontWeight: FontWeight.bold, fontFamily: 'SofiaPro');
 
 double fPoints = 0;
 double graphHeight = 0;
+
+User _user = new User(userCredentialR.user.uid, userCredentialR.user.displayName, fPoints.toString(), userCredentialR.user.email);
 
 void updateFocusPoints(double points) {
   fPoints += points;
@@ -13,6 +18,9 @@ void updateFocusPoints(double points) {
     graphHeight = 300;
   else
     graphHeight = fPoints;
+
+  _user.focusPoints = fPoints.toString();
+  itemRef.child(_user.uid).update(_user.toJson());
 }
 
 class AnalyticsScreen extends StatefulWidget {

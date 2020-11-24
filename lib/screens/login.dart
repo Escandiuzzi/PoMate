@@ -6,10 +6,12 @@ import 'package:poMate/screens/timer.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
+bool logged = false;
+
+UserCredential userCredentialR;
 
 Future<String> signInWithGoogle() async {
   await Firebase.initializeApp();
-
   final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
   final GoogleSignInAuthentication googleSignInAuthentication = await googleSignInAccount.authentication;
 
@@ -19,6 +21,7 @@ Future<String> signInWithGoogle() async {
   );
 
   final UserCredential authResult = await _auth.signInWithCredential(credential);
+  userCredentialR = authResult;
   final User user = authResult.user;
 
   if (user != null) {
@@ -72,13 +75,9 @@ class _LoginPageState extends State<LoginPage> {
       splashColor: Colors.grey,
       onPressed: () {signInWithGoogle().then((result) {
         if (result != null) {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) {
-                return PomodoroScreen();
-              },
-            ),
-          );
+          setState(() {
+            logged = true;
+          });
         }
       });},
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
@@ -90,11 +89,10 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            //Image(image: AssetImage("google_logo.png"), height: 35.0),
+            Image(image: AssetImage('lib/Assets/Images/google_logo.png'), height: 35.0),
             Padding(
               padding: const EdgeInsets.only(left: 10),
-              child: Text(
-                'Sign in with Google',
+              child: Text( logged ? 'Signed' : 'Sign in with Google',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.grey,

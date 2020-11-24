@@ -4,6 +4,10 @@ import 'package:poMate/screens/analytics.dart';
 import 'package:poMate/screens/ranking.dart';
 import 'package:poMate/screens/timer.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
+
+final FirebaseDatabase database = FirebaseDatabase.instance;
+DatabaseReference itemRef = database.reference();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,6 +16,9 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
+  //itemRef = database.reference().child('items');
+  //itemRef.onChildAdded.listen(_onEntryAdded);
+  //itemRef.onChildChanged.listen(_onEntryChanged);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
