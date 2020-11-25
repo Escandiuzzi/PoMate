@@ -4,11 +4,10 @@ import 'package:poMate/Assets/styles.dart';
 import 'package:poMate/screens/analytics.dart';
 import 'dart:math' as math;
 
-
 bool focus = true;
 
 final int tFocusValue = 10;
-final int tRelaxValue = 5;
+final int tRestValue = 5;
 
 double focusPoints = 15;
 double multiplier = 1.0;
@@ -28,12 +27,14 @@ class PomodoroTimerState extends State<PomodoroScreen>
   }
 
   void afterTimerEnded(PomodoroScreen widget) {
-      focus = !focus;
-      controller.value = 1;
-      controller.duration =
-          Duration(seconds: focus ? tFocusValue : tRelaxValue);
-      if (focus) updateFocusPoints(focusPoints * multiplier);
-      refresh();
+    if (focus)
+      updateFocusPoints(focusPoints * multiplier);
+    else
+      restCycle();
+    focus = !focus;
+    controller.value = 1;
+    controller.duration = Duration(seconds: focus ? tFocusValue : tRestValue);
+    refresh();
   }
 
   refresh() {
@@ -44,7 +45,9 @@ class PomodoroTimerState extends State<PomodoroScreen>
   void initState() {
     super.initState();
     controller = AnimationController(
-        vsync: this, duration: Duration(seconds: focus ? tFocusValue : tRelaxValue), value: 1);
+        vsync: this,
+        duration: Duration(seconds: focus ? tFocusValue : tRestValue),
+        value: 1);
   }
 
   @override

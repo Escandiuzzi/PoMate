@@ -6,20 +6,27 @@ class AppUser {
   String name;
   String focusPoints;
   String email;
+  String restCycles;
+  String focusCycles;
 
-  AppUser(this.uid, this.name, this.focusPoints, this.email);
+  AppUser(this.uid, this.name, this.focusPoints, this.email, this.restCycles,
+      this.focusCycles);
 
   AppUser.fromSnapshot(DataSnapshot snapshot)
-      : key =  snapshot.value["uid"],
+      : key = snapshot.value["uid"],
         name = snapshot.value["name"],
         focusPoints = snapshot.value["focusPoints"],
-        email = snapshot.value["email"];
+        email = snapshot.value["email"],
+        restCycles = snapshot.value["restCycles"],
+        focusCycles = snapshot.value["focusCycles"];
 
   toJson() {
     return {
       "email": email,
       "name": name,
       "focusPoints": focusPoints,
+      "restCycle": restCycles,
+      "focusCycle": focusCycles,
     };
   }
 }

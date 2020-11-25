@@ -13,14 +13,16 @@ UserCredential userCredentialR;
 Future<String> signInWithGoogle() async {
   await Firebase.initializeApp();
   final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
-  final GoogleSignInAuthentication googleSignInAuthentication = await googleSignInAccount.authentication;
+  final GoogleSignInAuthentication googleSignInAuthentication =
+      await googleSignInAccount.authentication;
 
   final AuthCredential credential = GoogleAuthProvider.credential(
     accessToken: googleSignInAuthentication.accessToken,
     idToken: googleSignInAuthentication.idToken,
   );
 
-  final UserCredential authResult = await _auth.signInWithCredential(credential);
+  final UserCredential authResult =
+      await _auth.signInWithCredential(credential);
   userCredentialR = authResult;
   final User user = authResult.user;
 
@@ -73,13 +75,15 @@ class _LoginPageState extends State<LoginPage> {
   Widget _signInButton() {
     return OutlineButton(
       splashColor: Colors.grey,
-      onPressed: () {signInWithGoogle().then((result) {
-        if (result != null) {
-          setState(() {
-            logged = true;
-          });
-        }
-      });},
+      onPressed: () {
+        signInWithGoogle().then((result) {
+          if (result != null) {
+            setState(() {
+              logged = true;
+            });
+          }
+        });
+      },
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       highlightElevation: 0,
       borderSide: BorderSide(color: Colors.grey),
@@ -89,10 +93,13 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image(image: AssetImage('lib/Assets/Images/google_logo.png'), height: 35.0),
+            Image(
+                image: AssetImage('lib/Assets/Images/google_logo.png'),
+                height: 35.0),
             Padding(
               padding: const EdgeInsets.only(left: 10),
-              child: Text( logged ? 'Signed' : 'Sign in with Google',
+              child: Text(
+                logged ? 'Signed' : 'Sign in with Google',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.grey,
