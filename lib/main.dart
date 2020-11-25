@@ -61,7 +61,8 @@ class _BottomBarWidgetState extends State<BottomBarWidget> {
                 icon: Icon(Icons.equalizer), label: 'My analytics'),
             BottomNavigationBarItem(icon: Icon(Icons.timer), label: 'Timer'),
             BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Ranking'),
-            BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'Login'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.account_circle), label: 'Login'),
           ],
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,

@@ -13,7 +13,8 @@ int fCycles = 0;
 int rCycles = 0;
 
 AppUser _user;
-String userImagePath = 'https://github.com/flutter/plugins/raw/master/packages/video_player/video_player/doc/demo_ipod.gif?raw=true';
+String userImagePath =
+    'https://thumbs.gfycat.com/RelievedOrderlyAnnelid-small.gif?raw=true';
 String userDisplayName = 'Anonymous user';
 
 void initializeUser() {
@@ -24,6 +25,7 @@ void initializeUser() {
       userCredentialR.user.email,
       rCycles.toString(),
       fCycles.toString());
+
   userImagePath = userCredentialR.user.photoURL;
   userDisplayName = userCredentialR.user.displayName;
 }
@@ -51,6 +53,7 @@ void updateFirebaseDB() {
   _user.focusCycles = fCycles.toString();
 
   itemRef.child("Ranking").child(_user.uid).update(_user.toJson());
+  SyncRanking(userCredentialR.user);
 }
 
 void updateValues(double _fPoints, int _rCycles, int _fCycles) {
@@ -66,7 +69,6 @@ void updateValues(double _fPoints, int _rCycles, int _fCycles) {
 
 void refresh() {
   setState() {}
-  ;
 }
 
 class AnalyticsScreen extends StatefulWidget {

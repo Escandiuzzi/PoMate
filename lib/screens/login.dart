@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:poMate/Controller/appuser.dart';
 import 'package:poMate/screens/analytics.dart';
+import 'package:poMate/screens/ranking.dart';
 import 'package:poMate/screens/timer.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -37,27 +39,44 @@ Future<String> signInWithGoogle() async {
 
     print('signInWithGoogle succeeded: $user');
 
-    var db = FirebaseDatabase.instance.reference().child("Ranking");
-    db.once().then((DataSnapshot snapshot) {
-      Map<dynamic, dynamic> values = snapshot.value;
-
-      updateValues(
-          double.parse(values[user.uid]["focusPoints"]),
-          int.parse(values[user.uid]["restCycles"]),
-          int.parse(values[user.uid]["focusCycles"]));
-
-      values.forEach((key, values) {
-        print(values["name"]);
-        print(values["focusPoints"]);
-        print(values["restCycles"]);
-        print(values["focusCycles"]);
-      });
-    });
-
+    SyncRanking(user);
     return '$user';
   }
 
   return null;
+}
+
+void SyncRanking(User _user) {
+  users.clear();
+  var db = FirebaseDatabase.instance.reference().child("Ranking");
+  db.once().then((DataSnapshot snapshot) {
+    Map<dynamic, dynamic> values = snapshot.value;
+
+    updateValues(
+        double.parse(values[_user.uid]["focusPoints"]),
+        int.parse(values[_user.uid]["restCycles"]),
+        int.parse(values[_user.uid]["focusCycles"]));
+
+    values.forEach((key, values) {
+      AppUser _dbUser = new AppUser(
+          "0",
+          values["name"].toString(),
+          values["focusPoints"].toString(),
+          values["email"].toString(),
+          values["restCycles"].toString(),
+          values["focusCycles"].toString());
+
+      users.add(_dbUser);
+      users.sort((b, a) =>
+          double.parse(a.focusPoints).compareTo(double.parse(b.focusPoints)));
+      refreshRanking();
+
+      print(values["name"]);
+      print(values["focusPoints"]);
+      print(values["restCycles"]);
+      print(values["focusCycles"]);
+    });
+  });
 }
 
 Future<void> signOutGoogle() async {
