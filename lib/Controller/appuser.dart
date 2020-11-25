@@ -1,15 +1,15 @@
 import 'package:firebase_database/firebase_database.dart';
 
-class User {
+class AppUser {
   String key;
   String uid;
   String name;
   String focusPoints;
   String email;
 
-  User(this.uid, this.name, this.focusPoints, this.email);
+  AppUser(this.uid, this.name, this.focusPoints, this.email);
 
-  User.fromSnapshot(DataSnapshot snapshot)
+  AppUser.fromSnapshot(DataSnapshot snapshot)
       : key =  snapshot.value["uid"],
         name = snapshot.value["name"],
         focusPoints = snapshot.value["focusPoints"],

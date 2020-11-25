@@ -1,15 +1,17 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:poMate/Controller/user.dart';
+import 'package:poMate/Assets/styles.dart';
+import 'package:poMate/Controller/appuser.dart';
 import 'package:poMate/main.dart';
 import 'package:poMate/screens/login.dart';
-
-const TextStyle optionStyle = TextStyle(
-    fontSize: 35, fontWeight: FontWeight.bold, fontFamily: 'SofiaPro');
 
 double fPoints = 0;
 double graphHeight = 0;
 
-User _user = new User(userCredentialR.user.uid, userCredentialR.user.displayName, fPoints.toString(), userCredentialR.user.email);
+int fCycles = 0;
+int rCycles = 0;
+
+AppUser _user = new AppUser(userCredentialR.user.uid, userCredentialR.user.displayName, fPoints.toString(), userCredentialR.user.email);
 
 void updateFocusPoints(double points) {
   fPoints += points;
@@ -33,50 +35,63 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        SizedBox(
-          height: 70,
-        ),
-        Center(
-            child: Text(
-          'My Analytics',
-          style: optionStyle,
-        )),
-        SizedBox(
-          height: 100,
-        ),
-        Center(
-          child: Text(
-            fPoints.toString(),
+        Padding(
+          padding: EdgeInsets.fromLTRB(0, 80, 0, 50),
+          child: Center(
+              child: Text(
+            'My Analytics',
             style: optionStyle,
+          )),
+        ),
+        CircleAvatar(
+          backgroundImage: NetworkImage(
+            userCredentialR.user.photoURL,
+          ),
+          radius: 60,
+          backgroundColor: Colors.transparent,
+        ),
+        SizedBox(height: 40),
+        Text(
+          'NAME',
+          style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'SofiaPro',
+              color: Colors.lightBlueAccent),
+        ),
+        SizedBox(height: 5),
+        Text(
+          userCredentialR.user.displayName,
+          style: TextStyle(
+              fontSize: 25,
+              color: Colors.white,
+              fontWeight: FontWeight.bold),
+        ),
+        Padding(
+          padding: EdgeInsets.fromLTRB(0, 70, 0, 0),
+          child: Center(
+            child: Text( 'Focus points:    ${fPoints.toString()}',
+              style: infoStyle,
+            ),
           ),
         ),
-        CustomPaint(
-          painter: GraphicPainter(),
+        Padding(
+          padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+          child: Center(
+            child: Text( 'Focus cycles:    ${fCycles.toString()}',
+              style: infoStyle,
+            ),
+          ),
         ),
-        SizedBox(
-          height: 60,
+        Padding(
+          padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+          child: Center(
+            child: Text( 'Rest cycles:    ${rCycles.toString()}',
+              style: infoStyle,
+            ),
+          ),
         ),
       ],
     );
-  }
-}
-
-class GraphicPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = Colors.redAccent
-      ..strokeWidth = 10.0
-      ..strokeCap = StrokeCap.round
-      ..style = PaintingStyle.fill;
-
-    canvas.drawRect(Rect.fromLTWH(-100, 350, 50, -graphHeight), paint);
-    paint.color = Colors.redAccent;
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    // TODO: implement shouldRepaint
-    throw UnimplementedError();
   }
 }

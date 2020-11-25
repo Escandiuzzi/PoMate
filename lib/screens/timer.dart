@@ -1,13 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:poMate/Assets/styles.dart';
 import 'package:poMate/screens/analytics.dart';
 import 'dart:math' as math;
 
-const TextStyle optionStyle = TextStyle(
-    fontSize: 35, fontWeight: FontWeight.bold, fontFamily: 'SofiaPro');
-
-const TextStyle cardStyle = TextStyle(
-    fontSize: 16, fontWeight: FontWeight.bold, fontFamily: 'Arciform');
 
 bool focus = true;
 
@@ -31,11 +27,17 @@ class PomodoroTimerState extends State<PomodoroScreen>
     return '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
   }
 
-  void afterTimerEnded() {
-      controller.duration = Duration(seconds: focus ? tFocusValue : tRelaxValue);
-      if (focus) updateFocusPoints(focusPoints * multiplier);
+  void afterTimerEnded(PomodoroScreen widget) {
       focus = !focus;
       controller.value = 1;
+      controller.duration =
+          Duration(seconds: focus ? tFocusValue : tRelaxValue);
+      if (focus) updateFocusPoints(focusPoints * multiplier);
+      refresh();
+  }
+
+  refresh() {
+    setState(() {});
   }
 
   @override
@@ -111,7 +113,7 @@ class PomodoroTimerState extends State<PomodoroScreen>
                                 (BuildContext dialogContext, Widget child) {
                               if (controller.value == 0) {
                                 WidgetsBinding.instance.addPostFrameCallback(
-                                    (_) => afterTimerEnded());
+                                    (_) => afterTimerEnded(this.widget));
                               }
                               return Column();
                             },
