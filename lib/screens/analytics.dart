@@ -12,13 +12,21 @@ double graphHeight = 0;
 int fCycles = 0;
 int rCycles = 0;
 
-AppUser _user = new AppUser(
-    userCredentialR.user.uid,
-    userCredentialR.user.displayName,
-    fPoints.toString(),
-    userCredentialR.user.email,
-    rCycles.toString(),
-    fCycles.toString());
+AppUser _user;
+String userImagePath = 'https://github.com/flutter/plugins/raw/master/packages/video_player/video_player/doc/demo_ipod.gif?raw=true';
+String userDisplayName = 'Anonymous user';
+
+void initializeUser() {
+  _user = new AppUser(
+      userCredentialR.user.uid,
+      userCredentialR.user.displayName,
+      fPoints.toString(),
+      userCredentialR.user.email,
+      rCycles.toString(),
+      fCycles.toString());
+  userImagePath = userCredentialR.user.photoURL;
+  userDisplayName = userCredentialR.user.displayName;
+}
 
 void updateFocusPoints(double points) {
   fPoints += points;
@@ -29,12 +37,12 @@ void updateFocusPoints(double points) {
   else
     graphHeight = fPoints;
 
-  updateFirebaseDB();
+  if (_user != null) updateFirebaseDB();
 }
 
 void restCycle() {
   rCycles += 1;
-  updateFirebaseDB();
+  if (_user != null) updateFirebaseDB();
 }
 
 void updateFirebaseDB() {
@@ -42,7 +50,23 @@ void updateFirebaseDB() {
   _user.restCycles = rCycles.toString();
   _user.focusCycles = fCycles.toString();
 
-  itemRef.child(_user.uid).update(_user.toJson());
+  itemRef.child("Ranking").child(_user.uid).update(_user.toJson());
+}
+
+void updateValues(double _fPoints, int _rCycles, int _fCycles) {
+  initializeUser();
+  fPoints = _fPoints != null ? _fPoints : 0;
+  rCycles = _rCycles != null ? _rCycles : 0;
+  fCycles = _fCycles != null ? _fCycles : 0;
+
+  debugPrint("${_fPoints}  ${_rCycles}  ${_fCycles}");
+
+  refresh();
+}
+
+void refresh() {
+  setState() {}
+  ;
 }
 
 class AnalyticsScreen extends StatefulWidget {
@@ -65,7 +89,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
         ),
         CircleAvatar(
           backgroundImage: NetworkImage(
-            userCredentialR.user.photoURL,
+            userImagePath,
           ),
           radius: 60,
           backgroundColor: Colors.transparent,
@@ -81,7 +105,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
         ),
         SizedBox(height: 5),
         Text(
-          userCredentialR.user.displayName,
+          userDisplayName,
           style: TextStyle(
               fontSize: 25, color: Colors.white, fontWeight: FontWeight.bold),
         ),

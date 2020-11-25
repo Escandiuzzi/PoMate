@@ -25,8 +25,8 @@ class AppUser {
       "email": email,
       "name": name,
       "focusPoints": focusPoints,
-      "restCycle": restCycles,
-      "focusCycle": focusCycles,
+      "restCycles": restCycles,
+      "focusCycles": focusCycles,
     };
   }
 }

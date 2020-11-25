@@ -14,7 +14,6 @@
       <change beforePath="$PROJECT_DIR$/lib/Controller/appuser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Controller/appuser.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/analytics.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/analytics.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/login.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/timer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/timer.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +36,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
@@ -97,29 +98,29 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="280" key="FileChooserDialogImpl/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605908743477" />
-    <state width="1105" height="211" key="GridCell.Tab.0.bottom" timestamp="1606312279995">
+    <state width="1491" height="211" key="GridCell.Tab.0.bottom" timestamp="1606315048436">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1877" height="283" key="GridCell.Tab.0.bottom/-1920.157.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1606263905314" />
-    <state width="1105" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606312279995" />
+    <state width="1491" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606315048436" />
     <state width="1308" height="281" key="GridCell.Tab.0.bottom/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605971192145" />
-    <state width="1105" height="211" key="GridCell.Tab.0.center" timestamp="1606312279995">
+    <state width="1491" height="211" key="GridCell.Tab.0.center" timestamp="1606315048436">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1877" height="283" key="GridCell.Tab.0.center/-1920.157.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1606263905314" />
-    <state width="1105" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1606312279995" />
+    <state width="1491" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1606315048436" />
     <state width="1308" height="281" key="GridCell.Tab.0.center/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605971192145" />
-    <state width="1105" height="211" key="GridCell.Tab.0.left" timestamp="1606312279994">
+    <state width="1491" height="211" key="GridCell.Tab.0.left" timestamp="1606315048436">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1877" height="283" key="GridCell.Tab.0.left/-1920.157.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1606263905314" />
-    <state width="1105" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1606312279994" />
+    <state width="1491" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1606315048436" />
     <state width="1308" height="281" key="GridCell.Tab.0.left/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605971192144" />
-    <state width="1105" height="211" key="GridCell.Tab.0.right" timestamp="1606312279995">
+    <state width="1491" height="211" key="GridCell.Tab.0.right" timestamp="1606315048436">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1877" height="283" key="GridCell.Tab.0.right/-1920.157.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1606263905314" />
-    <state width="1105" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1606312279995" />
+    <state width="1491" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1606315048436" />
     <state width="1308" height="281" key="GridCell.Tab.0.right/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605971192145" />
     <state x="461" y="170" key="SettingsEditor" timestamp="1605908746641">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -133,5 +134,9 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="600" height="428" key="javadoc.popup/1920.566.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1605962011839" />
+    <state x="425" y="189" key="run.anything.popup" timestamp="1606327088227">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1606327088227" />
   </component>
 </project>

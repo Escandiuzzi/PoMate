@@ -1,7 +1,9 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:poMate/screens/analytics.dart';
 import 'package:poMate/screens/timer.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -34,6 +36,23 @@ Future<String> signInWithGoogle() async {
     assert(user.uid == currentUser.uid);
 
     print('signInWithGoogle succeeded: $user');
+
+    var db = FirebaseDatabase.instance.reference().child("Ranking");
+    db.once().then((DataSnapshot snapshot) {
+      Map<dynamic, dynamic> values = snapshot.value;
+
+      updateValues(
+          double.parse(values[user.uid]["focusPoints"]),
+          int.parse(values[user.uid]["restCycles"]),
+          int.parse(values[user.uid]["focusCycles"]));
+
+      values.forEach((key, values) {
+        print(values["name"]);
+        print(values["focusPoints"]);
+        print(values["restCycles"]);
+        print(values["focusCycles"]);
+      });
+    });
 
     return '$user';
   }
