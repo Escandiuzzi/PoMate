@@ -12,6 +12,10 @@ final int tRestValue = 5;
 double focusPoints = 15;
 double multiplier = 1.0;
 
+Color tomatoColor = Colors.red;
+Color timerColor = Color.fromARGB(255, 171, 183, 103);
+Color backgroundColor = Colors.redAccent;
+
 class PomodoroScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => PomodoroTimerState();
@@ -27,10 +31,17 @@ class PomodoroTimerState extends State<PomodoroScreen>
   }
 
   void afterTimerEnded(PomodoroScreen widget) {
-    if (focus)
+    if (focus) {
       updateFocusPoints(focusPoints * multiplier);
-    else
+      tomatoColor = Colors.blue;
+      timerColor = Colors.yellow;
+      backgroundColor = Colors.lightBlueAccent;
+    } else {
+      tomatoColor = Colors.red;
+      timerColor = Color.fromARGB(255, 171, 183, 103);
+      backgroundColor = Colors.redAccent;
       restCycle();
+    }
     focus = !focus;
     controller.value = 1;
     controller.duration = Duration(seconds: focus ? tFocusValue : tRestValue);
@@ -55,15 +66,12 @@ class PomodoroTimerState extends State<PomodoroScreen>
     ThemeData themeData = Theme.of(context);
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.fromLTRB(8.0, 70.0, 8.0, 0),
         child: Column(
           children: <Widget>[
-            SizedBox(
-              height: 50,
-            ),
-            Align(
-              alignment: FractionalOffset.topCenter,
-              child: Text('PoMate Timer', style: optionStyle),
+            Image(
+              image: AssetImage('lib/Assets/Images/pomate_logo.png'),
+              height: 60,
             ),
             Expanded(
               child: Align(
@@ -85,8 +93,8 @@ class PomodoroTimerState extends State<PomodoroScreen>
                             return new CustomPaint(
                               painter: TimerPainter(
                                   animation: controller,
-                                  backgroundColor: Colors.redAccent,
-                                  color: Color.fromARGB(255, 171, 183, 103)),
+                                  bgColor: backgroundColor,
+                                  colour: timerColor),
                             );
                           },
                         )),
@@ -127,7 +135,7 @@ class PomodoroTimerState extends State<PomodoroScreen>
               ),
             ),
             Container(
-              margin: EdgeInsets.all(8.0),
+              margin: EdgeInsets.fromLTRB(8.0, 0, 8.0, 30.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -192,11 +200,11 @@ class TimerEndedPopupState extends State<TimerEndedPopup> {
 }
 
 class TimerPainter extends CustomPainter {
-  TimerPainter({this.animation, this.backgroundColor, this.color})
+  TimerPainter({this.animation, this.bgColor, this.colour})
       : super(repaint: animation);
 
   final Animation<double> animation;
-  final Color backgroundColor, color;
+  final Color bgColor, colour;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -207,7 +215,7 @@ class TimerPainter extends CustomPainter {
       ..style = PaintingStyle.stroke;
 
     canvas.drawCircle(size.center(Offset.zero), size.width / 2.0, paint);
-    paint.color = color;
+    paint.color = timerColor;
     double progress = (1.0 - animation.value) * 2 * math.pi;
     canvas.drawArc(Offset.zero & size, math.pi * 1.5, progress, false, paint);
   }
@@ -215,8 +223,8 @@ class TimerPainter extends CustomPainter {
   @override
   bool shouldRepaint(TimerPainter old) {
     return animation.value != old.animation.value ||
-        color != old.color ||
-        backgroundColor != old.backgroundColor;
+        timerColor != old.colour ||
+        backgroundColor != old.bgColor;
   }
 }
 
@@ -224,10 +232,10 @@ class TomatoPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint1 = Paint()
-      ..color = Colors.red
+      ..color = tomatoColor
       ..style = PaintingStyle.fill;
     //a circle
-    canvas.drawCircle(Offset.zero, 190, paint1);
+    canvas.drawCircle(Offset.zero, 200, paint1);
   }
 
   @override

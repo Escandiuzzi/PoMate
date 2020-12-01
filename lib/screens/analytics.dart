@@ -30,6 +30,10 @@ void initializeUser() {
   userDisplayName = userCredentialR.user.displayName;
 }
 
+void refreshAnalytics() {
+  setState() {}
+}
+
 void updateFocusPoints(double points) {
   fPoints += points;
   fCycles += 1;
